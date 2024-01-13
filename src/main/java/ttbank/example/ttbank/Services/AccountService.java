@@ -70,8 +70,8 @@ public class AccountService {
                 .orElseThrow(() -> new AccountNotFoundException(userId));
 
         // Check if the user already has a checking account
-        if (user.getAccounts().stream().anyMatch(a -> "Checking".equals(a.getAccountType()))) {
-            throw new BusinessRuleException("User already has a checking account");
+        if (user.getAccounts().stream().anyMatch(a -> "Saving".equals(a.getAccountType()))) {
+            throw new BusinessRuleException("User already has a saving account");
         }
 
 
